@@ -40,4 +40,4 @@
   --font-sans: var(--font-inter);
 }
 
-h1, h2, h3 { font-family: var(--font-heading), serif; }
+h1, h2, h3 { font-family: var(--font-fraunces), serif; }
