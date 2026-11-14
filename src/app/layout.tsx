@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces" });
@@ -11,11 +13,21 @@ export const metadata: Metadata = {
   description: "A small online library. Add a book, borrow a book, return a book.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" data-theme="booknook-dark" suppressHydrationWarning>
-      <body className={`${fraunces.variable} ${inter.variable} font-sans bg-base-100 text-base-content`}>
-        {children}
+      <body
+        className={`${fraunces.variable} ${inter.variable} font-sans bg-base-100 text-base-content`}
+      >
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
         <Toaster position="top-right" />
       </body>
     </html>
