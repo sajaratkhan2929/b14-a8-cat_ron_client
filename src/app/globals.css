@@ -1,26 +1,43 @@
 @import "tailwindcss";
+@plugin "daisyui" { themes: false; }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui/theme" {
+  name: "booknook-dark";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0b1411;
+  --color-base-200: #111d18;
+  --color-base-300: #1a2a23;
+  --color-base-content: #e8f0eb;
+  --color-primary: #7fcf9a;
+  --color-primary-content: #06130c;
+  --color-neutral: #1a2a23;
+  --color-neutral-content: #e8f0eb;
+  --color-error: #f07178;
+  --radius-box: 0.75rem;
+  --radius-field: 0.5rem;
+}
+
+@plugin "daisyui/theme" {
+  name: "booknook-light";
+  color-scheme: light;
+  --color-base-100: #faf7f0;
+  --color-base-200: #f1ece0;
+  --color-base-300: #e2dccb;
+  --color-base-content: #1b2a22;
+  --color-primary: #2f7d4f;
+  --color-primary-content: #ffffff;
+  --color-neutral: #e2dccb;
+  --color-neutral-content: #1b2a22;
+  --color-error: #c4343f;
+  --radius-box: 0.75rem;
+  --radius-field: 0.5rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-fraunces);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+h1, h2, h3 { font-family: var(--font-heading), serif; }
