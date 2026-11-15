@@ -20,7 +20,7 @@ const privateLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { user, logout } = useAuthUser();
+  const { user, loading, logout } = useAuthUser();
 
   const links = user ? [...publicLinks, ...privateLinks] : publicLinks;
 
@@ -51,7 +51,9 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
 
-          {!user ? (
+          {loading ? (
+              <div className="skeleton h-9 w-24 rounded-lg" />
+              ) : !user ? (
             <div className="hidden items-center gap-2 sm:flex">
               <Link href="/login" className="btn btn-ghost btn-sm">
                 Login

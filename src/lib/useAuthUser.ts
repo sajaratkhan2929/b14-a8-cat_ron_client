@@ -1,27 +1,12 @@
-export type AuthUser = {
-  name: string;
-  email: string;
-  image?: string;
-} | null;
+import { betterAuth } from "better-auth";
+import { mongodbAdapter } from "@better-auth/mongo-adapter";
+import { db } from "./mongodb";
 
-// TEMPORARY: replaced with BetterAuth in the auth step.
-// Set to true to preview the logged-in Navbar.
-const PREVIEW_LOGGED_IN = false;
-
-const previewUser: AuthUser = {
-  name: "Rumman Shajarat",
-  email: "rumman@example.com",
-  image: "",
-};
-
-export function useAuthUser(): {
-  user: AuthUser;
-  loading: boolean;
-  logout: () => void;
-} {
-  return {
-    user: PREVIEW_LOGGED_IN ? previewUser : null,
-    loading: false,
-    logout: () => {},
-  };
-}
+export const auth = betterAuth({
+  database: mongodbAdapter(db),
+  emailAndPassword: {
+    enabled: true,
+    minPasswordLength: 6,
+    autoSignIn: false, // after register, the user goes to the Login page
+  },
+});
