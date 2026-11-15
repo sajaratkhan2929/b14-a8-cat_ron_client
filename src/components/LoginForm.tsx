@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
 
@@ -10,6 +11,7 @@ export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [formError, setFormError] = useState("");
 
   // Only allow redirects inside this site.
@@ -56,6 +58,7 @@ export default function LoginForm() {
               name="email"
               type="email"
               required
+              autoComplete="email"
               placeholder="you@example.com"
               className="input input-bordered w-full"
             />
@@ -63,13 +66,24 @@ export default function LoginForm() {
 
           <label className="form-control w-full">
             <span className="mb-1 block text-sm">Password</span>
-            <input
-              name="password"
-              type="password"
-              required
-              placeholder="Your password"
-              className="input input-bordered w-full"
-            />
+            <div className="relative">
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                required
+                autoComplete="current-password"
+                placeholder="Your password"
+                className="input input-bordered w-full pr-12"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword((s) => !s)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-base-content/60 hover:text-base-content"
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            </div>
           </label>
 
           <div className="text-right">
