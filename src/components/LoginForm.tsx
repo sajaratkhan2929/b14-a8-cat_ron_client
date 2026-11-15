@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
+import GoogleButton from "./GoogleButton";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -102,6 +103,9 @@ export default function LoginForm() {
             {loading ? <span className="loading loading-spinner loading-sm" /> : "Login"}
           </button>
         </form>
+
+        <div className="divider text-xs text-base-content/50">OR</div>
+        <GoogleButton callbackURL={redirectTo} />
 
         <p className="mt-6 text-center text-sm text-base-content/70">
           New to BookNook?{" "}

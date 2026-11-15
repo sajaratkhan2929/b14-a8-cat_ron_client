@@ -71,14 +71,21 @@ export default function Navbar() {
                 aria-label="Open user menu"
               >
                 <div className="h-9 w-9 rounded-full ring-2 ring-primary/50">
+                 
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={
-                      user.image ||
-                      `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(user.name)}`
-                    }
-                    alt={user.name}
-                  />
+               <img
+                 referrerPolicy="no-referrer"
+                 src={
+                 user.image ||
+                `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(user.name)}`
+              }
+               alt={user.name}
+               onError={(e) => {
+                 e.currentTarget.onerror = null;
+                 e.currentTarget.src = `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(user.name)}`;
+                  }}
+                 />
+
                 </div>
               </div>
               <ul
