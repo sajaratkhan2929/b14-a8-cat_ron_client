@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Logo from "./Logo";
+import CurrentYear from "./CurrentYear";
 
 const iconClass = "h-4 w-4 fill-current";
 
@@ -91,7 +92,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-base-300 py-4 text-center text-sm text-base-content/60">
-        © {new Date().getFullYear()} BookNook. All rights reserved.
+       © <CurrentYear /> BookNook. All rights reserved.
       </div>
     </footer>
   );
