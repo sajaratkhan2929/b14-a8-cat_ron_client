@@ -48,11 +48,11 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-base-300 bg-base-200">
+    <footer className="bg-neutral text-neutral-content">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div className="space-y-4">
-          <Logo />
-          <p className="max-w-xs text-sm leading-relaxed text-base-content/70">
+          <Logo inverted />
+          <p className="max-w-xs text-sm leading-relaxed text-neutral-content/80">
             A small neighbourhood library on the web. Share the books on your
             shelf and borrow the ones you have been meaning to read.
           </p>
@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="space-y-4">
           <h3 className="text-lg font-semibold">Contact</h3>
-          <ul className="space-y-3 text-sm text-base-content/70">
+          <ul className="space-y-3 text-sm text-neutral-content/80">
             <li className="flex items-center gap-3">
               <Mail size={16} /> hello@booknook.app
             </li>
@@ -82,7 +82,7 @@ export default function Footer() {
                 href={s.href}
                 target="_blank"
                 aria-label={s.label}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-base-300 text-base-content/80 transition-colors hover:border-primary hover:text-primary"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-content/30 text-neutral-content transition-colors hover:bg-neutral-content hover:text-neutral"
               >
                 {s.icon}
               </Link>
@@ -91,8 +91,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-base-300 py-4 text-center text-sm text-base-content/60">
-       © <CurrentYear /> BookNook. All rights reserved.
+      <div className="border-t border-neutral-content/20 py-4 text-center text-sm text-neutral-content/70">
+        © <CurrentYear /> BookNook. All rights reserved.
       </div>
     </footer>
   );

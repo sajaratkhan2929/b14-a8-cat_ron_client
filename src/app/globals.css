@@ -2,37 +2,58 @@
 @plugin "daisyui" { themes: false; }
 
 @plugin "daisyui/theme" {
-  name: "booknook-dark";
+  name: "booknook-light";
   default: true;
-  prefersdark: true;
-  color-scheme: dark;
-  --color-base-100: #0b1411;
-  --color-base-200: #111d18;
-  --color-base-300: #1a2a23;
-  --color-base-content: #e8f0eb;
-  --color-primary: #7fcf9a;
-  --color-primary-content: #06130c;
-  --color-neutral: #1a2a23;
-  --color-neutral-content: #e8f0eb;
-  --color-error: #f07178;
-  --radius-box: 0.75rem;
-  --radius-field: 0.5rem;
+  color-scheme: light;
+  --color-base-100: #fdf7f0;
+  --color-base-200: #f7ebdd;
+  --color-base-300: #e8d5c0;
+  --color-base-content: #1e2a3b;
+  --color-primary: #8f1a3a;
+  --color-primary-content: #fff7ef;
+  --color-secondary: #1b8f96;
+  --color-secondary-content: #ffffff;
+  --color-accent: #e07a5f;
+  --color-accent-content: #2a120b;
+  --color-neutral: #8f1a3a;
+  --color-neutral-content: #fff7ef;
+  --color-info: #1b8f96;
+  --color-info-content: #ffffff;
+  --color-success: #2e8b6a;
+  --color-success-content: #ffffff;
+  --color-warning: #d9912b;
+  --color-warning-content: #2a1a05;
+  --color-error: #d64545;
+  --color-error-content: #ffffff;
+  --radius-box: 1rem;
+  --radius-field: 0.75rem;
 }
 
 @plugin "daisyui/theme" {
-  name: "booknook-light";
-  color-scheme: light;
-  --color-base-100: #faf7f0;
-  --color-base-200: #f1ece0;
-  --color-base-300: #e2dccb;
-  --color-base-content: #1b2a22;
-  --color-primary: #2f7d4f;
-  --color-primary-content: #ffffff;
-  --color-neutral: #e2dccb;
-  --color-neutral-content: #1b2a22;
-  --color-error: #c4343f;
-  --radius-box: 0.75rem;
-  --radius-field: 0.5rem;
+  name: "booknook-dark";
+  color-scheme: dark;
+  --color-base-100: #1b0f14;
+  --color-base-200: #26151c;
+  --color-base-300: #3a222c;
+  --color-base-content: #f6e9e0;
+  --color-primary: #e0587c;
+  --color-primary-content: #1b0f14;
+  --color-secondary: #3bb5bb;
+  --color-secondary-content: #08191a;
+  --color-accent: #e88b72;
+  --color-accent-content: #2a120b;
+  --color-neutral: #3a1423;
+  --color-neutral-content: #f6e9e0;
+  --color-info: #3bb5bb;
+  --color-info-content: #08191a;
+  --color-success: #4fb48f;
+  --color-success-content: #05150f;
+  --color-warning: #e8a84a;
+  --color-warning-content: #2a1a05;
+  --color-error: #f06a6a;
+  --color-error-content: #2a0808;
+  --radius-box: 1rem;
+  --radius-field: 0.75rem;
 }
 
 @theme inline {
@@ -41,3 +62,7 @@
 }
 
 h1, h2, h3 { font-family: var(--font-fraunces), serif; }
+h1, h2 { color: var(--color-primary); }
+
+/* Pill shaped buttons, the same style on every page */
+.btn { border-radius: 9999px; }
