@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Fraunces, Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
@@ -19,12 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="booknook-dark" suppressHydrationWarning>
+    <html lang="en" data-theme="booknook-light" suppressHydrationWarning>
       <body
         className={`${fraunces.variable} ${inter.variable} font-sans bg-base-100 text-base-content`}
       >
         <div className="flex min-h-screen flex-col">
-          <Navbar />
+          <Suspense
+            fallback={<div className="h-16 border-b border-base-300 bg-base-100" />}
+          >
+            <Navbar />
+          </Suspense>
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
