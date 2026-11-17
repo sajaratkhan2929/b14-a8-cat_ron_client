@@ -12,3 +12,13 @@ export type Book = {
   addedBy: { name: string; email: string };
   createdAt: string;
 };
+export type Borrow = {
+  _id: string;
+  bookId: string;
+  bookTitle: string;
+  bookImage: string;
+  userName: string;
+  userEmail: string;
+  borrowDate: string;
+  returnDate: string;
+};
