@@ -14,13 +14,13 @@ export default function BookCard({ book }: { book: Book }) {
         />
       </div>
 
-      <div className="flex flex-1 flex-col gap-2 p-4">
+      <div className="flex flex-1 flex-col gap-1.5 p-3">
         <span className="badge badge-outline badge-sm w-fit">{book.category}</span>
-        <h3 className="line-clamp-1 text-lg font-semibold">{book.title}</h3>
+        <h3 className="line-clamp-1 text-base font-semibold">{book.title}</h3>
         <p className="line-clamp-1 text-sm text-base-content/70">by {book.author}</p>
         <Link
           href={`/books/${book._id}`}
-          className="btn btn-primary btn-sm mt-auto"
+          className="btn btn-primary btn-sm mt-2"
         >
           View Details
         </Link>

@@ -76,7 +76,7 @@ export default function BookList({
   }
 
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {visible.map((book) => (
         <BookCard key={book._id} book={book} />
       ))}

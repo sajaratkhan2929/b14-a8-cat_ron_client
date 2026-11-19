@@ -13,7 +13,7 @@ async function getToken(): Promise<string> {
 type ApiOptions = {
   method?: "GET" | "POST" | "PATCH" | "DELETE";
   body?: unknown;
-  auth?: boolean; // send the JWT when true
+  auth?: boolean; 
 };
 
 export async function apiFetch<T>(path: string, options: ApiOptions = {}): Promise<T> {

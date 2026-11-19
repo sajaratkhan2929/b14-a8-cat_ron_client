@@ -15,7 +15,7 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [formError, setFormError] = useState("");
 
-  // Only allow redirects inside this site.
+  
   const redirect = searchParams.get("redirect");
   const redirectTo =
     redirect && redirect.startsWith("/") && !redirect.startsWith("//")
