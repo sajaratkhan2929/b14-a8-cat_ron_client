@@ -7,7 +7,13 @@ import type { Book } from "@/lib/types";
 import BookCard from "./BookCard";
 import Spinner from "./Spinner";
 
-export default function BookList({ limit }: { limit?: number }) {
+export default function BookList({
+  limit,
+  category,
+}: {
+  limit?: number;
+  category?: string;
+}) {
   const [books, setBooks] = useState<Book[] | null>(null);
   const [error, setError] = useState("");
   const [attempt, setAttempt] = useState(0);
@@ -49,12 +55,18 @@ export default function BookList({ limit }: { limit?: number }) {
 
   if (books === null) return <Spinner label="Loading books" />;
 
-  if (books.length === 0) {
+  const visible = category ? books.filter((b) => b.category === category) : books;
+
+  if (visible.length === 0) {
     return (
       <div className="rounded-box border border-base-300 bg-base-200 p-10 text-center">
-        <h3 className="text-xl font-semibold">No books on the shelf yet</h3>
+        <h3 className="text-xl font-semibold">
+          {category ? `No ${category} books yet` : "No books on the shelf yet"}
+        </h3>
         <p className="mt-2 text-base-content/70">
-          Be the first to add a book to the library.
+          {category
+            ? "Try another category, or add one yourself."
+            : "Be the first to add a book to the library."}
         </p>
         <Link href="/add-book" className="btn btn-primary btn-sm mt-4">
           Add a Book
@@ -65,7 +77,7 @@ export default function BookList({ limit }: { limit?: number }) {
 
   return (
     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {books.map((book) => (
+      {visible.map((book) => (
         <BookCard key={book._id} book={book} />
       ))}
     </div>

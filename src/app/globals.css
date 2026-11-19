@@ -69,9 +69,9 @@ h1, h2, h3 { font-family: var(--font-fraunces), serif; }
 /* Pill shaped buttons, the same style on every page */
 .btn { border-radius: 9999px; }
 
-/* Swiper slider colors follow the theme */
+/* Slider dots sit on top of a photo, so they are white in both themes */
 .swiper {
-  --swiper-pagination-color: var(--color-primary);
-  --swiper-pagination-bullet-inactive-color: var(--color-base-content);
-  --swiper-pagination-bullet-inactive-opacity: 0.3;
+  --swiper-pagination-color: #ffffff;
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.45;
 }
